@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.View;
@@ -154,6 +155,12 @@ public class IntlPhoneInput extends LinearLayout {
             if (phoneNumber != null) {
                 mPhoneEdit.setHint(mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
             }
+        }
+    }
+
+    public void setHint(String hint) {
+        if(!TextUtils.isEmpty(hint) && mPhoneEdit != null) {
+            mPhoneEdit.setHint(hint);
         }
     }
 
