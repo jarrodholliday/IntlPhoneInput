@@ -74,7 +74,7 @@ public class CountriesFetcher {
          */
         public int indexOfIso(String iso) {
             for (int i = 0; i < this.size(); i++) {
-                if (this.get(i).getIso().toUpperCase().equals(iso.toUpperCase())) {
+                if (this.get(i) != null && this.get(i).getIso().toUpperCase().equals(iso.toUpperCase())) {
                     return i;
                 }
             }
