@@ -19,12 +19,12 @@ android {
 }
 
 dependencies {
-    compile 'com.googlecode.libphonenumber:libphonenumber:7.3.0'
+    compile 'com.googlecode.libphonenumber:libphonenumber:7.3.2'
 }
 
 ext {
     groupId = 'com.github.jarrodholliday'
-    versionId = '0.9.6'
+    versionId = '0.9.7'
     gitProjectUrl = "https://github.com/jarrodholliday/IntlPhoneInput"
     gitUrl = "https://github.com/jarrodholliday/IntlPhoneInput.git"
 }
