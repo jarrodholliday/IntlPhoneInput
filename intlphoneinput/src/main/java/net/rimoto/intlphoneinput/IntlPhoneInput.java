@@ -175,23 +175,14 @@ public class IntlPhoneInput extends LinearLayout {
 
             setHint();
 
-            if(userListener != null) {
-                userListener.onItemSelected(parent, view, position, id);
+            if (mIntlPhoneInputListener != null) {
+                mIntlPhoneInputListener.onCountryChange(mSelectedCountry.getIso().toUpperCase());
             }
         }
 
         @Override
-        public void onNothingSelected(AdapterView<?> parent) {
-            if(userListener != null) {
-                userListener.onNothingSelected(parent);
-            }
-        }
+        public void onNothingSelected(AdapterView<?> parent) { }
     };
-    private AdapterView.OnItemSelectedListener userListener;
-
-    public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener listener) {
-        userListener = listener;
-    }
 
     /**
      * Phone number watcher
@@ -327,6 +318,7 @@ public class IntlPhoneInput extends LinearLayout {
      */
     public interface IntlPhoneInputListener {
         void done(View view, boolean isValid);
+        void onCountryChange(String iso);
     }
 
     @Override

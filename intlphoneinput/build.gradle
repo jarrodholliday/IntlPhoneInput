@@ -24,7 +24,7 @@ dependencies {
 
 ext {
     groupId = 'com.github.jarrodholliday'
-    versionId = '0.9.7'
+    versionId = '0.9.8'
     gitProjectUrl = "https://github.com/jarrodholliday/IntlPhoneInput"
     gitUrl = "https://github.com/jarrodholliday/IntlPhoneInput.git"
 }
