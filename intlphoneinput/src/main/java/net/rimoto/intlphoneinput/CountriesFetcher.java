@@ -2,6 +2,7 @@ package net.rimoto.intlphoneinput;
 
 
 import android.content.Context;
+import android.text.TextUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -74,7 +75,8 @@ public class CountriesFetcher {
          */
         public int indexOfIso(String iso) {
             for (int i = 0; i < this.size(); i++) {
-                if (this.get(i) != null && this.get(i).getIso().toUpperCase().equals(iso.toUpperCase())) {
+                Country country = get(i);
+                if (country != null && !TextUtils.isEmpty(country.getIso()) &&  country.getIso().toUpperCase().equals(iso.toUpperCase())) {
                     return i;
                 }
             }

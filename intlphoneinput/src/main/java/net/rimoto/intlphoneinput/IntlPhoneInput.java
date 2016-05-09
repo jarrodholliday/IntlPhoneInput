@@ -174,12 +174,24 @@ public class IntlPhoneInput extends LinearLayout {
             mPhoneNumberWatcher = new PhoneNumberWatcher(mSelectedCountry.getIso());
 
             setHint();
+
+            if(userListener != null) {
+                userListener.onItemSelected(parent, view, position, id);
+            }
         }
 
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
+            if(userListener != null) {
+                userListener.onNothingSelected(parent);
+            }
         }
     };
+    private AdapterView.OnItemSelectedListener userListener;
+
+    public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener listener) {
+        userListener = listener;
+    }
 
     /**
      * Phone number watcher
