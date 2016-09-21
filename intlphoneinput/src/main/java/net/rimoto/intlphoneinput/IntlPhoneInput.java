@@ -2,6 +2,8 @@ package net.rimoto.intlphoneinput;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Build;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.telephony.TelephonyManager;
@@ -86,6 +88,8 @@ public class IntlPhoneInput extends LinearLayout {
          */
         mPhoneEdit = (EditText) findViewById(R.id.intl_phone_edit__phone);
         mPhoneEdit.addTextChangedListener(mPhoneNumberWatcher);
+        mPhoneEdit.getBackground().mutate().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+
 
         setDefault();
     }

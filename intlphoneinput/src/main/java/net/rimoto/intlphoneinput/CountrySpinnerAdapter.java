@@ -1,12 +1,15 @@
 package net.rimoto.intlphoneinput;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.alexzh.circleimageview.CircleImageView;
 
 public class CountrySpinnerAdapter extends ArrayAdapter<Country> {
     private LayoutInflater mLayoutInflater;
@@ -30,7 +33,7 @@ public class CountrySpinnerAdapter extends ArrayAdapter<Country> {
      * @return covertView
      */
     @Override
-    public View getDropDownView(int position, View convertView, ViewGroup parent) {
+    public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
         final ViewHolder viewHolder;
         if (convertView == null) {
             convertView = mLayoutInflater.inflate(R.layout.item_country, parent, false);
@@ -58,15 +61,17 @@ public class CountrySpinnerAdapter extends ArrayAdapter<Country> {
      * @param parent      parent of selected view
      * @return convertView
      */
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         Country country = getItem(position);
 
         if (convertView == null) {
-            convertView = new ImageView(getContext());
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            convertView = inflater.inflate(R.layout.item_spinner_display, parent, false);
         }
 
-        ((ImageView) convertView).setImageResource(getFlagResource(country));
+        ((CircleImageView) convertView.findViewById(R.id.spinnerCircleImage)).setImageResource(getFlagResource(country));
 
         return convertView;
     }
