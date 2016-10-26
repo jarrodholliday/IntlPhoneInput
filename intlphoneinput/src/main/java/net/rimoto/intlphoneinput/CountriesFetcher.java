@@ -74,9 +74,10 @@ public class CountriesFetcher {
          * @return index of the item in the list
          */
         public int indexOfIso(String iso) {
+            Country country;
             for (int i = 0; i < this.size(); i++) {
-                Country country = get(i);
-                if (country != null && !TextUtils.isEmpty(country.getIso()) &&  country.getIso().toUpperCase().equals(iso.toUpperCase())) {
+                country = get(i);
+                if (country != null && !TextUtils.isEmpty(country.getIso()) &&  country.getIso().equalsIgnoreCase(iso)) {
                     return i;
                 }
             }

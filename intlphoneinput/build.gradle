@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion '24.0.2'
+    compileSdkVersion 25
+    buildToolsVersion '24.0.3'
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
     }
@@ -19,14 +19,14 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-annotations:24.2.1'
-    compile 'com.googlecode.libphonenumber:libphonenumber:7.7.0'
-    compile 'com.github.jarrodholliday:circleimageview:1.2.1'
+    compile 'com.android.support:support-annotations:25.0.0'
+    compile 'com.googlecode.libphonenumber:libphonenumber:7.7.2'
+    compile 'com.github.jarrodholliday:circleimageview:1.2.2'
 }
 
 ext {
     groupId = 'com.github.jarrodholliday'
-    versionId = '0.9.9'
+    versionId = '0.9.12'
     gitProjectUrl = "https://github.com/jarrodholliday/IntlPhoneInput"
     gitUrl = "https://github.com/jarrodholliday/IntlPhoneInput.git"
 }
@@ -62,6 +62,9 @@ install {
                 developers {
                     developer {
                         name "Rimoto"
+                    }
+                    developer {
+                        name "Jarrod Holliday"
                     }
                 }
                 scm {
