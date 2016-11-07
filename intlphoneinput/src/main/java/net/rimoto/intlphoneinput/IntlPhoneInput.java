@@ -139,6 +139,8 @@ public class IntlPhoneInput extends LinearLayout {
             iso = DEFAULT_COUNTRY;
         }
         int defaultIdx = mCountries.indexOfIso(iso);
+        if (defaultIdx < 0)
+            defaultIdx = 0;
         mSelectedCountry = mCountries.get(defaultIdx);
         mCountrySpinner.setSelection(defaultIdx);
     }
@@ -163,7 +165,7 @@ public class IntlPhoneInput extends LinearLayout {
     }
 
     public void setHint(String hint) {
-        if(!TextUtils.isEmpty(hint) && mPhoneEdit != null) {
+        if (!TextUtils.isEmpty(hint) && mPhoneEdit != null) {
             mPhoneEdit.setHint(hint);
         }
     }
@@ -185,7 +187,8 @@ public class IntlPhoneInput extends LinearLayout {
         }
 
         @Override
-        public void onNothingSelected(AdapterView<?> parent) { }
+        public void onNothingSelected(AdapterView<?> parent) {
+        }
     };
 
     /**
@@ -322,6 +325,7 @@ public class IntlPhoneInput extends LinearLayout {
      */
     public interface IntlPhoneInputListener {
         void done(View view, boolean isValid);
+
         void onCountryChange(String iso);
     }
 
