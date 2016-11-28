@@ -170,6 +170,12 @@ public class IntlPhoneInput extends LinearLayout {
         }
     }
 
+    public void setError(String error) {
+        if (mPhoneEdit != null) {
+            mPhoneEdit.setError(error);
+        }
+    }
+
     /**
      * Spinner listener
      */
