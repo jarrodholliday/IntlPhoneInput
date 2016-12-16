@@ -14,7 +14,7 @@ apply plugin: 'com.github.ben-manes.versions'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.1'
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         minSdkVersion 14
@@ -42,7 +42,7 @@ publish {
     userOrg = properties.getProperty("bintray.userOrg")
     groupId = properties.getProperty("bintray.groupId")
     artifactId = 'intlphoneinput'
-    publishVersion = '0.9.14'
+    publishVersion = '0.9.15'
     description = 'International phone input for Android'
     website = properties.getProperty("bintray.website")
     bintrayUser = properties.getProperty("bintray.user")

@@ -111,6 +111,13 @@ public class IntlPhoneInput extends LinearLayout {
     }
 
     /**
+     * Get EditText for keyboard reasons and stuff
+     */
+    public EditText getPhoneNumberEditText() {
+        return mPhoneEdit;
+    }
+
+    /**
      * Set default value
      * Will try to retrieve phone number from device
      */
@@ -259,6 +266,8 @@ public class IntlPhoneInput extends LinearLayout {
             mPhoneEdit.setText(mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
         } catch (NumberParseException ignored) {
         }
+
+        mPhoneEdit.requestFocus();
     }
 
     /**
