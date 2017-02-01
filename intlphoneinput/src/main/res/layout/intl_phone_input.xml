@@ -11,12 +11,19 @@
         android:paddingRight="1dp"
         tools:ignore="RtlSymmetry"/>
 
-    <EditText
-        android:id="@+id/intl_phone_edit__phone"
+    <net.rimoto.intlphoneinput.CustomTextInputLayout
+        android:id="@+id/intl_phone_layout_edit__phone"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:singleLine="true"
-        android:textSize="24sp"
-        android:textColor="@android:color/white"/>
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/intl_phone_edit__phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"/>
+
+    </net.rimoto.intlphoneinput.CustomTextInputLayout>
 </merge>

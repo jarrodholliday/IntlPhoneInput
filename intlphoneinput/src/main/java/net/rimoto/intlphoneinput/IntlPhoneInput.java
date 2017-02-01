@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Build;
+import android.support.design.widget.TextInputEditText;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -31,7 +32,8 @@ public class IntlPhoneInput extends LinearLayout {
 
     // UI Views
     private Spinner mCountrySpinner;
-    private EditText mPhoneEdit;
+    private TextInputEditText mPhoneEdit;
+    private CustomTextInputLayout phoneEditLayout;
 
     //Adapters
     private CountrySpinnerAdapter mCountrySpinnerAdapter;
@@ -86,10 +88,11 @@ public class IntlPhoneInput extends LinearLayout {
         /**
          * Phone text field
          */
-        mPhoneEdit = (EditText) findViewById(R.id.intl_phone_edit__phone);
+        mPhoneEdit = (TextInputEditText) findViewById(R.id.intl_phone_edit__phone);
         mPhoneEdit.addTextChangedListener(mPhoneNumberWatcher);
         mPhoneEdit.getBackground().mutate().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
 
+        phoneEditLayout = (CustomTextInputLayout) findViewById(R.id.intl_phone_layout_edit__phone);
 
         setDefault();
     }
@@ -163,23 +166,31 @@ public class IntlPhoneInput extends LinearLayout {
      * Set hint number for country
      */
     private void setHint() {
-        if (mPhoneEdit != null && mSelectedCountry != null && mSelectedCountry.getIso() != null) {
+        if (phoneEditLayout != null && mSelectedCountry != null && mSelectedCountry.getIso() != null) {
             Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.getExampleNumberForType(mSelectedCountry.getIso(), PhoneNumberUtil.PhoneNumberType.MOBILE);
             if (phoneNumber != null) {
-                mPhoneEdit.setHint(mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
+                phoneEditLayout.setHelperText("Use format " + mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
+                if (!phoneEditLayout.isErrorEnabled()) {
+                    phoneEditLayout.setHelperTextEnabled(true);
+                }
             }
         }
     }
 
     public void setHint(String hint) {
-        if (!TextUtils.isEmpty(hint) && mPhoneEdit != null) {
-            mPhoneEdit.setHint(hint);
+        if (!TextUtils.isEmpty(hint) && phoneEditLayout != null) {
+            phoneEditLayout.setHint(hint);
+            if (!phoneEditLayout.isErrorEnabled()) {
+                phoneEditLayout.setHelperTextEnabled(true);
+            }
         }
     }
 
     public void setError(String error) {
-        if (mPhoneEdit != null) {
-            mPhoneEdit.setError(error);
+        if (phoneEditLayout != null) {
+            phoneEditLayout.setError(error);
+            phoneEditLayout.setHelperTextEnabled(false);
+            phoneEditLayout.setErrorEnabled(true);
         }
     }
 

@@ -31,8 +31,9 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-annotations:25.1.0'
-    compile 'com.googlecode.libphonenumber:libphonenumber:8.0.0'
+    compile 'com.android.support:support-annotations:25.1.1'
+    compile 'com.android.support:design:25.1.1'
+    compile 'com.googlecode.libphonenumber:libphonenumber:8.1.0'
     compile 'com.github.jarrodholliday:circleimageview:1.2.2'
 }
 
@@ -42,7 +43,7 @@ publish {
     userOrg = properties.getProperty("bintray.userOrg")
     groupId = properties.getProperty("bintray.groupId")
     artifactId = 'intlphoneinput'
-    publishVersion = '0.9.15'
+    publishVersion = '0.9.16'
     description = 'International phone input for Android'
     website = properties.getProperty("bintray.website")
     bintrayUser = properties.getProperty("bintray.user")
