@@ -43,7 +43,7 @@ publish {
     userOrg = properties.getProperty("bintray.userOrg")
     groupId = properties.getProperty("bintray.groupId")
     artifactId = 'intlphoneinput'
-    publishVersion = '0.9.16'
+    publishVersion = '0.9.17'
     description = 'International phone input for Android'
     website = properties.getProperty("bintray.website")
     bintrayUser = properties.getProperty("bintray.user")

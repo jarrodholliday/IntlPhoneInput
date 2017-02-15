@@ -24,7 +24,7 @@ country, displays a relevant placeholder and auto formats the number as they typ
 ## Download
 Download via Gradle or Maven:
 ```groovy
-compile 'com.github.jarrodholliday:intlphoneinput:0.9.12'
+compile 'com.github.jarrodholliday:intlphoneinput:0.9.17'
 ```
 or Maven:
 ```xml

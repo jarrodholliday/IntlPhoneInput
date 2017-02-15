@@ -277,8 +277,6 @@ public class IntlPhoneInput extends LinearLayout {
             mPhoneEdit.setText(mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
         } catch (NumberParseException ignored) {
         }
-
-        mPhoneEdit.requestFocus();
     }
 
     /**
