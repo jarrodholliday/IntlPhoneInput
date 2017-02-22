@@ -188,9 +188,14 @@ public class IntlPhoneInput extends LinearLayout {
 
     public void setError(String error) {
         if (phoneEditLayout != null) {
-            phoneEditLayout.setError(error);
-            phoneEditLayout.setHelperTextEnabled(false);
-            phoneEditLayout.setErrorEnabled(true);
+            if(!TextUtils.isEmpty(error)) {
+                phoneEditLayout.setError(error);
+                phoneEditLayout.setHelperTextEnabled(false);
+                phoneEditLayout.setErrorEnabled(true);
+            } else {
+                phoneEditLayout.setHelperTextEnabled(true);
+                phoneEditLayout.setErrorEnabled(false);
+            }
         }
     }
 
@@ -332,6 +337,16 @@ public class IntlPhoneInput extends LinearLayout {
     public boolean isValid() {
         Phonenumber.PhoneNumber phoneNumber = getPhoneNumber();
         return phoneNumber != null && mPhoneUtil.isValidNumber(phoneNumber);
+    }
+
+    /**
+     * Check if number is possible
+     *
+     * @return true if possible, false otherwise
+     */
+    public boolean isPossibleNumber() {
+        Phonenumber.PhoneNumber phoneNumber = getPhoneNumber();
+        return phoneNumber != null && mPhoneUtil.isPossibleNumber(phoneNumber);
     }
 
     /**
